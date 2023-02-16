@@ -1,0 +1,69 @@
+// Escribir simulador Java //
+
+//Piedra, Papel o Tijera //
+
+
+function aleatorio(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min)
+}
+
+function eleccion(jugada){
+ let resultado = ""
+        if(jugada == 1) {
+    resultado = "piedra"
+} else if(jugada == 2) {
+        resultado = "papel"
+}   else if(jugada == 3) {
+        resultado = "tijera"
+}else {
+       resultado = "Mal elegido"
+    } 
+return resultado
+}
+
+// 1 es piedra, 2 es papel , 3 es tijera//
+
+    let jugador = 0
+    let mac = 0
+    let triunfos = 0
+    let perdidas = 0
+
+// cerrar el bucle//
+
+while (triunfos < 3 && perdidas < 3){
+
+    mac = aleatorio(1,3)
+    jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera")
+
+// alert("Elegiste " + jugador )
+
+    alert("Tu eliges:" + eleccion(jugador))
+    alert ("mac elige:" + eleccion(mac)) 
+
+// COMBATE//
+
+    if(mac == jugador){ 
+        alert("EMPATE")}
+
+         else if (jugador == 1 && mac == 3) {
+         alert ("GANASTE")
+
+    triunfos = triunfos + 1 }
+
+         else if (jugador == 2 && mac == 1 ){
+         alert("GANASTE")
+
+    triunfos = triunfos + 1 }
+
+        else if (jugador == 3 && mac == 2 ){
+        alert("GANASTE")
+
+    triunfos = triunfos + 1 }       
+        else {
+         alert("PERDISTE")
+    perdidas = perdidas + 1 }
+
+}
+alert("GANASTE" + triunfos + " veces. Perdistes " + perdidas + " veces.")
+
+
