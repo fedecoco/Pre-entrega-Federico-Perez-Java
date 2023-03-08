@@ -1,3 +1,4 @@
+
 // Escribir simulador Java //
 
 //Piedra, Papel o Tijera //
@@ -22,48 +23,56 @@ return resultado
 }
 
 // 1 es piedra, 2 es papel , 3 es tijera//
+// Obtjeto  + Array//
 
-    let jugador = 0
+    const jugadores = { 
+        jugador: 0, 
+        mac: 0,
+        triunfos: 0,
+        perdidas: 0 }
+    /*let jugador = 0
     let mac = 0
     let triunfos = 0
-    let perdidas = 0
+    let perdidas = 0 */
 
 // cerrar el bucle//
 
-while (triunfos < 3 && perdidas < 3){
+while (jugadores.jugador < 3 && jugadores.perdidas < 3){
 
-    mac = aleatorio(1,3)
-    jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera")
+    jugadores.mac = aleatorio(1,3)
+    jugadores.jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera")
 
 // alert("Elegiste " + jugador )
 
-    alert("Tu eliges:" + eleccion(jugador))
-    alert ("mac elige:" + eleccion(mac)) 
+    alert("Tu eliges: " + eleccion(jugadores.jugador))
+    alert ("mac elige: " + eleccion(jugadores.mac)) 
 
 // COMBATE//
 
-    if(mac == jugador){ 
+    if(jugadores.mac == jugadores.jugador){ 
         alert("EMPATE")}
 
-         else if (jugador == 1 && mac == 3) {
+         else if (jugadores.jugador == 1 && jugadores.mac == 3) {
          alert ("GANASTE")
 
-    triunfos = triunfos + 1 }
+    jugadores.triunfos = jugadores.triunfos + 1 }
 
-         else if (jugador == 2 && mac == 1 ){
+         else if (jugadores.jugador == 2 && jugadores.mac == 1 ){
          alert("GANASTE")
 
-    triunfos = triunfos + 1 }
+    jugadores.triunfos = jugadores.triunfos + 1 }
 
-        else if (jugador == 3 && mac == 2 ){
+        else if (jugadores.jugador == 3 && jugadores.mac == 2 ){
         alert("GANASTE")
 
-    triunfos = triunfos + 1 }       
+    jugadores.triunfos = jugadores.triunfos + 1 }       
         else {
          alert("PERDISTE")
-    perdidas = perdidas + 1 }
+    jugadores.perdidas = jugadores.perdidas + 1 }
 
 }
-alert("GANASTE" + triunfos + " veces. Perdistes " + perdidas + " veces.")
+// alert("GANASTE " + jugadores.triunfos + " veces. Perdistes " + jugadores.perdidas + " veces.")
 
+const resultado =["GANASTE " + jugadores.triunfos + " veces. Perdistes " + jugadores.perdidas + " veces."]
+alert (resultado.join(""))
 
